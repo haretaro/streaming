@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <title>
+      hogehgoe
+    </title>
+    <style>
+      img{
+        width: 100%;
+      }
+    </style>
+    <script>
+      function main(){
+        num = 1;
+        var view = document.getElementById('view');
+        (function renderLoop(){
+          console.log('num')
+          view.src = 'img/'+num+'.jpg';
+          num ++;
+          setTimeout(renderLoop, 100);
+        })();
+      }
+      document.addEventListener('DOMContentLoaded', main, false);
+    </script>
+  </head>
+  <body>
+    <img id='view' src ='img/0.jpg'>
+  </body>
+</html>
