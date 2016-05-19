@@ -3,10 +3,9 @@ import tornado.web
 import io
 import cv2
 import os
+import picap
 
-cap = cv2.VideoCapture(0)
-cap.set(3, 640)
-cap.set(4, 380)
+cap = picap.get_capturer(True, resolution=(480,320))
 
 class rootpage(tornado.web.RequestHandler):
     def get(self):

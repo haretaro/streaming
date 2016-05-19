@@ -14,12 +14,12 @@
       function main(){
         num = 1;
         var view = document.getElementById('view');
-        (function renderLoop(){
+        function renderLoop(){
           console.log('num')
           view.src = 'img/'+num+'.jpg';
           num ++;
-          setTimeout(renderLoop, 100);
-        })();
+        };
+        view.onload = renderLoop;
       }
       document.addEventListener('DOMContentLoaded', main, false);
     </script>
