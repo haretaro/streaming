@@ -5,19 +5,21 @@
     <title>
       hogehgoe
     </title>
-    <style>
-      img{
-        width: 100%;
-      }
-    </style>
     <script>
       function main(){
-        num = 1;
         var view = document.getElementById('view');
+        var info = document.getElementById('info');
+        var num = 1;
+        var prevtime = +new Date();
         function renderLoop(){
           console.log('num')
           view.src = 'img/'+num+'.jpg';
           num ++;
+          currenttime = +new Date()
+          var fps = 1000 / (currenttime - prevtime)
+          fps = fps.toFixed(2)
+          prevtime = currenttime;
+          info.innerHTML = ('0' + fps).slice(-5) + 'fps';
         };
         view.onload = renderLoop;
       }
@@ -25,6 +27,7 @@
     </script>
   </head>
   <body>
-    <img id='view' src ='img/0.jpg'>
+    <p id = 'info'>0fps</p>
+    <img id = 'view' src = 'img/0.jpg' style = 'width:100%'>
   </body>
 </html>

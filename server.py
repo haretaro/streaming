@@ -2,10 +2,9 @@ import tornado.ioloop
 import tornado.web
 import io
 import cv2
-import os
 import picap
 
-cap = picap.get_capturer(True, resolution=(480,320))
+cap = picap.get_capturer(False, resolution=(480,320))
 
 class rootpage(tornado.web.RequestHandler):
     def get(self):
